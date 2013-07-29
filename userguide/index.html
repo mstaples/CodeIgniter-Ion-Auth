@@ -75,10 +75,8 @@
 				<li><a href="#delete_group">delete_group()</a></li>
 				<li><a href="#messages">messages()</a></li>
 				<li><a href="#messages_array">messages_array()</a></li>
-				<li><a href="#set_message_delimiters">set_message_delimiters()</a></li>
 				<li><a href="#errors">errors()</a></li>
 				<li><a href="#errors_array">errors_array()</a></li>
-				<li><a href="#set_error_delimiters">set_error_delimiters()</a></li>
         <li><a href="#trigger_events">trigger_events()</a></li>
         <li><a href="#set_hook">set_hook()</a></li>
 			</ul>
@@ -179,10 +177,6 @@ Documentation
 		<li>$config['forgot_password_expiration'] </li>
 		<li>$config['track_login_attempts'] </li>
 		<li>$config['maximum_login_attempts'] </li>
-		<li>$config['message_start_delimiter']</li>
-		<li>$config['message_end_delimiter']</li>
-		<li>$config['error_start_delimiter']</li>
-		<li>$config['error_end_delimiter']</li>
 	</ul>
 
 	<a name="use_config"></a>
@@ -224,10 +218,6 @@ Documentation
 		<li>'maximum_login_attempts' - Set the maximum number of failed login attempts. This maximum is not enforced by the library, but is 
 			 used by $this->ion_auth->is_max_login_attempts_exceeded(). The controller should check this function and act appropriately.
 			 If set to 0, there is no maximum. DEFAULT is 3.</li>
-		<li>'message_start_delimiter' -  Starting delimiter for messages. DEFAULT is '&lt;p&gt;'.</li>
-		<li>'message_end_delimiter' -  Ending delimiter for messages. DEFAULT is '&lt;/p&gt;'.</li>
-		<li>'error_start_delimiter' -  Starting delimiter for errors. DEFAULT is '&lt;p&gt;'.</li>
-		<li>'error_end_delimiter' -  Ending delimiter for errors. DEFAULT is '&lt;/p&gt;'.</li>
 	</ul>
 	<br />
 
@@ -1065,39 +1055,6 @@ Documentation
 	</pre>
 	<br />
 
-
-	<a name="set_message_delimiters"></a>
-	<h2>set_message_delimiters()</h2>
-	<p>Set the message delimiters.</p>
-
-	<p><strong>Parameters</strong></p>
-	<ol>
-		<li>'Start Delimiter' - string REQUIRED.</li>
-		<li>'End Delimiter' - string REQUIRED.</li>
-	</ol>
-
-	<p><b>Usage</b></p>
-	<pre>
-		$id = 12;
-		$data = array(
-					'first_name' => 'Ben',
-					'last_name' => 'Edmunds',
-					 );
-		if ($this->ion_auth->update_user($id, $data))
-		{
-			$this->ion_auth->set_message_delimiters('&lt;p&gt;&lt;strong&gt;','&lt;/strong&gt;&lt;/p&gt;');
-			$messages = $this->ion_auth->messages();
-			echo $messages;
-		}
-		else
-		{
-			$this->ion_auth->set_error_delimiters('&lt;p&gt;&lt;strong&gt;','&lt;/strong&gt;&lt;/p&gt;');
-			$errors = $this->ion_auth->errors();
-			echo $errors;
-		}
-	</pre>
-	<br />
-
 	<a name="errors"></a>
 	<h2>errors()</h2>
 	<p>Get the errors.</p>
@@ -1163,38 +1120,6 @@ Documentation
 			{
 				echo $error;
 			}
-		}
-	</pre>
-	<br />
-
-	<a name="set_error_delimiters"></a>
-	<h2>set_error_delimiters()</h2>
-	<p>Set the error delimiters.</p>
-
-	<p><strong>Parameters</strong></p>
-	<ol>
-		<li>'Start Delimiter' - string REQUIRED.</li>
-		<li>'End Delimiter' - string REQUIRED.</li>
-	</ol>
-
-	<p><b>Usage</b></p>
-	<pre>
-		$id = 12;
-		$data = array(
-					'first_name' => 'Ben',
-					'last_name' => 'Edmunds',
-					 );
-		if ($this->ion_auth->update_user($id, $data))
-		{
-			$this->ion_auth->set_message_delimiters('&lt;p&gt;&lt;strong&gt;','&lt;/strong&gt;&lt;/p&gt;');
-			$messages = $this->ion_auth->messages();
-			echo $messages;
-		}
-		else
-		{
-			$this->ion_auth->set_error_delimiters('&lt;p&gt;&lt;strong&gt;','&lt;/strong&gt;&lt;/p&gt;');
-			$errors = $this->ion_auth->errors();
-			echo $errors;
 		}
 	</pre>
 	<br />
