@@ -161,13 +161,10 @@ $config['store_salt']  = FALSE;
 
 /*
  | -------------------------------------------------------------------------
- | Message Delimiters.
+ | Message Delimiters can now be set in the Export_delimiters library
+ | application/libraries/Export_delimiters.php
  | -------------------------------------------------------------------------
  */
-$config['message_start_delimiter'] = '<p>'; 	// Message start delimiter
-$config['message_end_delimiter']   = '</p>'; 	// Message end delimiter
-$config['error_start_delimiter']   = '<p>';		// Error mesage start delimiter
-$config['error_end_delimiter']     = '</p>';	// Error mesage end delimiter
 
 /* End of file ion_auth.php */
 /* Location: ./application/config/ion_auth.php */
